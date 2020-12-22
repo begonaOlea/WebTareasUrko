@@ -5,11 +5,13 @@ public class Tarea {
     private int id;
     private String descripcion;
     private String estado;
+    private String usuario;
 
-    public Tarea(int id, String descripcion, String estado) {
+    public Tarea(int id, String descripcion, String estado, String usuario) {
         this.id = id;
         this.descripcion = descripcion;
         this.estado = estado;
+        this.usuario = usuario;
     }
 
     public int getId() {
@@ -34,6 +36,14 @@ public class Tarea {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     @Override

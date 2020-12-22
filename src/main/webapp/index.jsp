@@ -1,12 +1,17 @@
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <a href="WEB-INF/vista/bootStrap.jspf"></a>
-    <title>Login</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-</body>
+        <%@include file="WEB-INF/vista/bootstrap.jspf" %>
+        <title>Inicio</title>
+    </head>
+    <body>
+        <%@include file="WEB-INF/vista/cabecera.jspf" %>
+        <%@include file="WEB-INF/vista/menu.jspf" %>
+        
+        
+    </body>
 </html>

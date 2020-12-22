@@ -4,16 +4,27 @@ import java.util.Objects;
 
 public class Usuario {
 
-    private String email; // PK
+    private String apodo;
+    private String email;
     private String password;
     private String nombre;
     private String apellidos;
 
-    public Usuario(String email, String password, String nombre, String apellidos) {
+    public Usuario(String apodo, String email, String password, 
+            String nombre, String apellidos) {
+        this.apodo = apodo;
         this.email = email;
         this.password = password;
         this.nombre = nombre;
         this.apellidos = apellidos;
+    }
+
+    public String getApodo() {
+        return apodo;
+    }
+
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
     }
 
     public String getEmail() {
