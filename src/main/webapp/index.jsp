@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,9 +7,10 @@
         <title>Inicio</title>
     </head>
     <body>
-        <%@include file="WEB-INF/vista/cabecera.jspf" %>
-        <%@include file="WEB-INF/vista/menu.jspf" %>
-        
-        
+        <div class="container">
+            <%@include file="WEB-INF/vista/cabecera.jspf" %>
+            <%@include file="WEB-INF/vista/menu.jspf" %>
+
+        </div>
     </body>
 </html>

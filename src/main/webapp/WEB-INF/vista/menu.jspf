@@ -10,7 +10,6 @@
 <div id="menu">
     <hr>
     <a id="menu" href="index.jsp">Home</a>
-    <a id="menu" href="lista.jsp">Lista</a>
-    <a id="menu" href="alquiler.jsp">Alquiler</a>
+    <a id="menu" href="tareas.jsp">Tareas</a>
     <hr>
 </div>

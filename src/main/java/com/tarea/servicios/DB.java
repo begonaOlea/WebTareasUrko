@@ -15,14 +15,14 @@ public class DB {
     
     static{
         tareas = new HashMap<Integer, Tarea>();
-        tareas.put(1, new Tarea(1, "A", "To Do", ""));
-        tareas.put(2, new Tarea(2, "B", "In Progress", ""));
-        tareas.put(3, new Tarea(3, "C", "To Do", ""));
-        tareas.put(4, new Tarea(4, "D", "Done", ""));
+        tareas.put(1, new Tarea(1, "A", "To Do", "kuko24"));
+        tareas.put(2, new Tarea(2, "B", "In Progress", "kuko24"));
+        tareas.put(3, new Tarea(3, "C", "To Do", "labil"));
+        tareas.put(4, new Tarea(4, "D", "Done", "kuko24"));
         
         usuarios = new HashSet<Usuario>();
-        usuarios.add(new Usuario("","begona@gmail.com", "1234", "Begoña", "Olea"));
-        usuarios.add(new Usuario("","laura@gmail.com", "1234", "Laura", "Bilbao"));
+        usuarios.add(new Usuario("kuko24","urko@gmail.com", "1234", "Urko", "Uri"));
+        usuarios.add(new Usuario("labil","laura@gmail.com", "1234", "Laura", "Bilbao"));
     }
 
     static Collection<Usuario> getUsuarios() {
