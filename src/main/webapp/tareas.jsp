@@ -17,7 +17,9 @@
 
             <%
                 TareasService ts = new TareasService();
-                Collection<Tarea> lista = ts.getTareasPorEstado("To Do");
+                Collection<Tarea> listaToDo = ts.getTareasPorEstado("To Do");
+                Collection<Tarea> listaInProgress = ts.getTareasPorEstado("In Progress");
+                Collection<Tarea> listaDone = ts.getTareasPorEstado("Done");
             %>
             <div class="row">
                 <div class="col-3">
@@ -32,9 +34,9 @@
                     <h3>Completado</h3>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-3">
-
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -43,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%for (Tarea t : lista) {%>
+                            <%for (Tarea t : listaToDo) {%>
                             <tr>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>  
@@ -56,13 +58,43 @@
                     boton
                 </div>  
                 <div class="col-3">
-
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tarea</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (Tarea t : listaInProgress) {%>
+                            <tr>
+                                <td><%= t.getId()%></td>
+                                <td><%= t.getDescripcion()%></td>  
+                            </tr>   
+                            <%}%>
+                        </tbody>
+                    </table>
                 </div>   
                 <div class="col-1">
                     boton
                 </div>
                 <div class="col-3">
-
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tarea</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (Tarea t : listaDone) {%>
+                            <tr>
+                                <td><%= t.getId()%></td>
+                                <td><%= t.getDescripcion()%></td>  
+                            </tr>   
+                            <%}%>
+                        </tbody>
+                    </table>
                 </div> 
             </div>
         </div>
