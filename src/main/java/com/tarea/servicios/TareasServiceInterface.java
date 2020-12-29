@@ -1,6 +1,7 @@
 
 package com.tarea.servicios;
 
+import com.tarea.model.Estado;
 import com.tarea.model.Tarea;
 import java.util.Collection;
 
