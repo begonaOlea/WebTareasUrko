@@ -19,6 +19,18 @@ public class TareasService implements TareasServiceInterface{
         }
         return lista;
     }
+
+    @Override
+    public Collection<Tarea> getTareasPorUsuario(String apodo) {
+        Collection<Tarea> lista = new HashSet<Tarea>();
+        
+        for(Tarea t:DB.getAllTareas()){
+            if(t.getUsuario().equals(apodo)){
+               lista.add(t);
+            }
+        }
+        return lista;
+    }
     
     
 

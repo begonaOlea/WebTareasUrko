@@ -9,10 +9,11 @@
     </head>
     <body>
         <div class="container">
-
+            <%@include file="WEB-INF/vista/cabecera.jspf" %>
+            <%@include file="WEB-INF/vista/menu.jspf" %>
             <div class="row">
                 <div class="col">
-                    <h1>Introduce los datos de Acceso</h1>
+                    <h4>Introduce los datos de Acceso</h4>
                     <%
                         if (request.getAttribute("mensaje") != null) {
                             String msg = (String) request.getAttribute("mensaje");

@@ -8,4 +8,5 @@ import java.util.Collection;
 public interface TareasServiceInterface {
     
     public Collection<Tarea> getTareasPorEstado (String estado);
+    public Collection<Tarea> getTareasPorUsuario (String apodo);
 }
