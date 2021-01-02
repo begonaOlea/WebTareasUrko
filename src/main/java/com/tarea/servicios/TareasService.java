@@ -1,6 +1,7 @@
 package com.tarea.servicios;
 
 import com.tarea.model.Tarea;
+import com.tarea.model.Usuario;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -30,6 +31,11 @@ public class TareasService implements TareasServiceInterface{
             }
         }
         return lista;
+    }
+
+    @Override
+    public void cambiarEstado(int id, Usuario user) {
+        Collection<Tarea> lista = getTareasPorUsuario(user);
     }
     
     

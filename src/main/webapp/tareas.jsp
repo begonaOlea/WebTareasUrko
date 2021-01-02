@@ -17,11 +17,9 @@
             <%@include file="WEB-INF/vista/menu.jspf" %>
 
             <%
-                Usuario user=(Usuario)session.getAttribute("usuario");
+                Usuario user = (Usuario) session.getAttribute("usuario");
                 TareasService ts = new TareasService();
-                Collection<Tarea> listaToDo = ts.getTareasPorEstado("To Do");
-                Collection<Tarea> listaInProgress = ts.getTareasPorEstado("In Progress");
-                Collection<Tarea> listaDone = ts.getTareasPorEstado("Done");
+                Collection<Tarea> listaUser = ts.getTareasPorUsuario(user.getApodo());
             %>
             <div class="row">
                 <div class="col-4">
@@ -39,17 +37,22 @@
                 <div class="col-4">
                     <table class="table table-striped">
                         <thead>
-                            <tr>
+                            <tr>                            
                                 <th scope="col">ID</th>
                                 <th scope="col">Tarea</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <%for (Tarea t : listaToDo) {%>
+                        <tbody>                    
+                            <%for (Tarea t : listaUser) {%>                        
                             <tr>
+                                <%if (t.getEstado().equals("To Do")) {%>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
-                                <td><a href="cambio-estado">--></a></td>
+                                <td>
+                                    <a href="cambio-estado?id=<%=t.getId()%>">--></a>
+                                </td>
+                                <%}%>
                             </tr>   
                             <%}%>
                         </tbody>
@@ -62,15 +65,20 @@
                                 <th scope="col"></th>
                                 <th scope="col">ID</th>
                                 <th scope="col">Tarea</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <%for (Tarea t : listaInProgress) {%>
+                            <%for (Tarea t : listaUser) {%>
                             <tr>
-                                <td><a href="cambio-estado"><--</a></td>
+                                <%if (t.getEstado().equals("In Progress")) {%>
+                                <td><a href="cambio-estado?id=<%=t.getId()%>"><--</a></td>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
-                                <td><a href="cambio-estado">--></a></td>
+                                <td>
+                                    <a href="cambio-estado?id=<%=t.getId()%>">--></a>
+                                </td>
+                                <%}%>
                             </tr>   
                             <%}%>
                         </tbody>
@@ -86,11 +94,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <%for (Tarea t : listaDone) {%>
+                            <%for (Tarea t : listaUser) {%>
                             <tr>
+                                <%if (t.getEstado().equals("Done")) {%>
                                 <td><a href="cambio-estado"><--</a></td>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
+                                <%}%>
                             </tr>   
                             <%}%>
                         </tbody>
