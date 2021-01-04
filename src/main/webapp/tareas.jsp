@@ -50,7 +50,7 @@
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
                                 <td>
-                                    <a href="cambio-estado?id=<%=t.getId()%>">--></a>
+                                    <a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=">--></a>
                                 </td>
                                 <%}%>
                             </tr>   

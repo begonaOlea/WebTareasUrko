@@ -34,8 +34,14 @@ public class TareasService implements TareasServiceInterface{
     }
 
     @Override
-    public void cambiarEstado(int id, Usuario user) {
-        Collection<Tarea> lista = getTareasPorUsuario(user);
+    public void cambiarEstado(int id, Usuario user, String est) {
+        Collection<Tarea> lista = getTareasPorUsuario(user.getApodo());
+        
+        for(Tarea t : lista){
+            if(t.getId() == id){
+                t.setEstado("In Progress");
+            }
+        }
     }
     
     

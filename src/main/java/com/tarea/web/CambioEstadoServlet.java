@@ -19,14 +19,38 @@ public class CambioEstadoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String sId = req.getParameter("id");
+        String estado = req.getParameter("nuevo-estado");
         HttpSession session = req.getSession();
         Usuario user = (Usuario) session.getAttribute("usuario");
+        String msgErrorParam = null;
+        String msgErrorCambio = null;
+        boolean correcto = true;
 
-        int id = Integer.parseInt(sId,user);
+        if (sId == null || sId.trim().length() == 0) {
+            msgErrorParam = "El ID de la tarea es incorrecto";
+            correcto = false;
+        }
 
-        ts.cambiarEstado(id);
+        if (correcto) {
+            try {
+                int id = Integer.parseInt(sId);
+                ts.cambiarEstado(id, user, estado);
+            } catch (Exception ex) {
+                msgErrorCambio = ex.getMessage();
+                correcto = false;
+            }
+        }
+        
+        String jsp = "";
+        if(correcto){
+            jsp  = "tareas.jsp";
+        }else{
+            jsp = "tareas.jsp";
+            req.setAttribute("msgErrorParam", msgErrorParam);
+            req.setAttribute("msgErrorCambio", msgErrorCambio);
+        }
 
-        RequestDispatcher rd = req.getRequestDispatcher("tareas.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher(jsp);
         rd.forward(req, resp);
     }
 
