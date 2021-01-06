@@ -39,7 +39,7 @@ public class TareasService implements TareasServiceInterface{
         
         for(Tarea t : lista){
             if(t.getId() == id){
-                t.setEstado("In Progress");
+                t.setEstado(est);
             }
         }
     }

@@ -50,7 +50,7 @@
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
                                 <td>
-                                    <a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=">--></a>
+                                    <a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=In Progress">--></a>
                                 </td>
                                 <%}%>
                             </tr>   
@@ -72,11 +72,13 @@
                             <%for (Tarea t : listaUser) {%>
                             <tr>
                                 <%if (t.getEstado().equals("In Progress")) {%>
-                                <td><a href="cambio-estado?id=<%=t.getId()%>"><--</a></td>
+                                <td>
+                                    <a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=To Do"><--</a>
+                                </td>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
                                 <td>
-                                    <a href="cambio-estado?id=<%=t.getId()%>">--></a>
+                                    <a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=Done">--></a>
                                 </td>
                                 <%}%>
                             </tr>   
@@ -97,7 +99,7 @@
                             <%for (Tarea t : listaUser) {%>
                             <tr>
                                 <%if (t.getEstado().equals("Done")) {%>
-                                <td><a href="cambio-estado"><--</a></td>
+                                <td><a href="cambio-estado?id=<%=t.getId()%>&nuevo-estado=In Progress"><--</a></td>
                                 <td><%= t.getId()%></td>
                                 <td><%= t.getDescripcion()%></td>
                                 <%}%>
